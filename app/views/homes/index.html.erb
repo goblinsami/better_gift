@@ -1,0 +1,37 @@
+<div class="container-fluid mb-5 p-5 text-center shadow">
+  <h1>Regala Mejor</h1>
+  <h5 class="mt-4 fst-italic">Encuentra el mejor regalos</h5>
+  <%= render('shared/searchbar') %>
+</div>
+<div class="container px-5 w-75">
+  <div class="row">
+    <h3 class="h5">Artículos destacados</h3>
+    <% articles.first(2).each do |article| %>
+      <div class="col-6">
+        <div class="card p-5 h-100">
+          <h2 class="h3"><%= article.title %></h2>
+          <p><%= article.description %></p>
+          <ul>
+            <% article.products.each do |product| %>
+              <li>
+                <%= product.name %> <%= product.age %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="row mt-5">
+    <h3 class="h5">Recomendados</h3>
+    <% products.first(3).each do |product| %>
+      <div class="col-4">
+        <div class="card p-5">
+          <h2 class="h3"><%= product.name %></h2>
+          <h3 class="small"><%= product.price %></h2>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%= render('shared/footer') %>

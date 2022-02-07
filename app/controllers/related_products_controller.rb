@@ -1,0 +1,2 @@
+class RelatedProductsController < ApplicationController
+end
