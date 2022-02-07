@@ -4,8 +4,21 @@
   <%= render('shared/searchbar') %>
 </div>
 <div class="container px-5 w-75">
+    <h3 class="h5"><%= "TODOS LOS PUBLICOS" if params[:option] == "1" %></h3>
+    <h3 class="h5"><%= "NIÑOS" if params[:option] == "2" %></h3>
+    <h3 class="h5"><%= "ADULTOS" if params[:option] == "3" %></h3>
+  <div class="row mt-5">
+    <h3 class="h5">Recomendados</h3>
+    <% @products.each do |product| %>
+      <div class="col-4">
+        <div class="card p-5">
+          <h2 class="h3"><%= product.name %></h2>
+          <h3 class="small"><%= product.age_range %></h2>
+        </div>
+      </div>
+    <% end %>
+  </div>
   <div class="row">
-    <h3 class="h5">Artículos destacados</h3>
     <% articles.first(2).each do |article| %>
       <div class="col-6">
         <div class="card p-5 h-100">
@@ -18,17 +31,6 @@
               </li>
             <% end %>
           </ul>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="row mt-5">
-    <h3 class="h5">Recomendados</h3>
-    <% products.first(3).each do |product| %>
-      <div class="col-4">
-        <div class="card p-5">
-          <h2 class="h3"><%= product.name %></h2>
-          <h3 class="small"><%= product.price %></h2>
         </div>
       </div>
     <% end %>
